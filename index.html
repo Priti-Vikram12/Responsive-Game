@@ -1,0 +1,50 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background-image: url("pic1.png");
+            background-size: cover;}
+        .img1{width:100px;height:100px;position:absolute;left:300px;top:400px}
+        .r1{display: flex;color:white;font-size:30px}
+        .c1{flex:50%}
+        .c2{flex:50%;text-align: right;}
+    </style>
+    <script>
+        var sc=0,tm=60;
+        const fun1=()=>{
+            if(tm!=0){
+            sc++;}
+            document.getElementById("m1").innerHTML="Score:"+sc;
+        }
+        const fun2=()=>{
+           tm--;
+           if(tm==0)
+           {
+                clearInterval(int1);
+                clearInterval(int2);
+                alert("Game Over\nYour Score is:"+sc);
+            }
+            document.getElementById("m2").innerHTML="Time Left:"+tm;
+        }
+        const fun3=()=>{
+            var tp=parseInt(Math.random()*400);
+            var lft=parseInt(Math.random()*700);
+            document.getElementById("m3").style.left=lft+"px";
+            document.getElementById("m3").style.top=tp+"px";
+        }
+        var int1=setInterval("fun2()",1000);
+        var int2=setInterval("fun3()",1000);
+    </script>
+</head>
+<body>
+    <div class="r1">
+        <div id="m1" class="c1">Score:0</div>
+        <div id="m2" class="c2">Time Left:60</div>
+    </div>
+    <img id="m3" onclick="fun1()" class="img1" src="bt.png" />
+    
+</body>
+</html>
